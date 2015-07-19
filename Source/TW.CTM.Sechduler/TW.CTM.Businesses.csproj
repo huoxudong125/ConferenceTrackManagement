@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0AF483CC-2411-4C84-9EEB-497E068E9845}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TW.CTM.Businesses</RootNamespace>
+    <AssemblyName>TW.CTM.Businesses</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Export\ConsoleExportProvider.cs" />
+    <Compile Include="Export\FileExportProvider.cs" />
+    <Compile Include="Import\TalksFileLoadProvider.cs" />
+    <Compile Include="Import\TalksTextLoadProvider.cs" />
+    <Compile Include="Schedule\Scheduler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Export\ConferenceExporter.cs" />
+    <Compile Include="Schedule\SimpleScheduleProvider.cs" />
+    <Compile Include="TalkHelper.cs" />
+    <Compile Include="Import\TalksLoader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TrackHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TW.CTM.Models\TW.CTM.Models.csproj">
+      <Project>{63178365-82ff-4e9d-a7af-ca14ff9bcb80}</Project>
+      <Name>TW.CTM.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TW.CTM.Businesses.Interface\TW.CTM.Businesses.Interface.csproj">
+      <Project>{90a2eb80-71e4-474d-b81d-030d7a6dda9f}</Project>
+      <Name>TW.CTM.Businesses.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TW.CTM.Common\TW.CTM.Common.csproj">
+      <Project>{0cfd55c9-f5d4-4c96-b93a-7b284ecb54de}</Project>
+      <Name>TW.CTM.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
